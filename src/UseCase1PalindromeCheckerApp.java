@@ -41,5 +41,25 @@ public class UseCase1PalindromeCheckerApp {
         } else {
             System.out.println(input + " is NOT a Palindrome (Method 2)");
         }
+        String input4 = "radar";
+        char[] chars = input4.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome4 = true;
+
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome4 = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        if (isPalindrome4) {
+            System.out.println(input4 + " is a palindrome.");
+        } else {
+            System.out.println(input4 + " is not a palindrome.");
+        }
     }
 }
