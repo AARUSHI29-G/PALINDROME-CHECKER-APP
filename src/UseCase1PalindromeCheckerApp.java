@@ -1,9 +1,4 @@
-public class UseCase1PalindromeCheckerApp {
-
-    /**
-     * Application entry point.
-     */
-    public static void main(String[] args) {
+public static void main(String[] args) {
 
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
@@ -40,6 +35,26 @@ public class UseCase1PalindromeCheckerApp {
             System.out.println(input + " is a Palindrome (Method 2)");
         } else {
             System.out.println(input + " is NOT a Palindrome (Method 2)");
+        }
+        String input4 = "radar";
+        char[] chars = input4.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome4 = true;
+
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome4 = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        if (isPalindrome4) {
+            System.out.println(input4 + " is a palindrome.");
+        } else {
+            System.out.println(input4 + " is not a palindrome.");
         }
     }
 }
