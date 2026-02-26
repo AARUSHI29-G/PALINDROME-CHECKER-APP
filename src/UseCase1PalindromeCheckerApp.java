@@ -1,46 +1,54 @@
-public class UseCase1PalindromeCheckerApp {
 
-    /**
-     * Application entry point.
-     */
+
+import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+public class UseCase1PalindromeCheckerApp {
     public static void main(String[] args) {
 
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully.");
-        System.out.println("-----------------------------------");
 
-        // Hardcoded string
+        // USE CASE 2 (Hardcoded string + charAt two-pointer)
         String input = "madam";
-
-        // Method 1: Using character comparison
         boolean isPalindrome = true;
 
+        // Loop only till half of the string length
         for (int i = 0; i < input.length() / 2; i++) {
+            // Compare characters from both ends
             if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
                 isPalindrome = false;
                 break;
             }
         }
 
+        // Display result
         if (isPalindrome) {
-            System.out.println(input + " is a Palindrome (Method 1)");
+            System.out.println(input + " is a Palindrome");
         } else {
-            System.out.println(input + " is NOT a Palindrome (Method 1)");
+            System.out.println(input + " is NOT a Palindrome");
         }
 
-        // Method 2: Reverse string and compare
-        String reversed = "";
+        // USE CASE 3 (Reverse string and compare)
+        String input3 = "madam";
+        StringBuilder reversedBuilder = new StringBuilder();
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i);
+        for (int i = input3.length() - 1; i >= 0; i--) {
+            reversedBuilder.append(input3.charAt(i));
         }
 
-        if (input.equals(reversed)) {
-            System.out.println(input + " is a Palindrome (Method 2)");
+        String reversed = reversedBuilder.toString();
+
+        if (input3.equals(reversed)) {
+            System.out.println(input3 + " is a palindrome");
         } else {
-            System.out.println(input + " is NOT a Palindrome (Method 2)");
+            System.out.println(input3 + " is not a palindrome");
         }
+
+        // USE CASE 4 (Two-pointer using char array)
         String input4 = "radar";
         char[] chars = input4.toCharArray();
         int start = 0;
@@ -60,6 +68,28 @@ public class UseCase1PalindromeCheckerApp {
             System.out.println(input4 + " is a palindrome.");
         } else {
             System.out.println(input4 + " is not a palindrome.");
+        }
+        // USE CASE 5 (Using Stack only)
+        String input5 = "noon";
+        Stack<Character> stack5 = new Stack<>();
+
+        for (char c : input5.toCharArray()) {
+            stack5.push(c);
+        }
+
+        boolean isPalindrome5 = true;
+
+        for (char c : input5.toCharArray()) {
+            if (c != stack5.pop()) {
+                isPalindrome5 = false;
+                break;
+            }
+        }
+
+        if (isPalindrome5) {
+            System.out.println(input5 + " is a palindrome.");
+        } else {
+            System.out.println(input5 + " is not a palindrome.");
         }
     }
 }
